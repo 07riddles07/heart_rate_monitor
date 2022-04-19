@@ -25,16 +25,13 @@
 		margin: 0 5px;
 		cursor: pointer;
 		transition: 0.5s all;
-
 		&:hover {
 			box-shadow: 3px 3px 20px $main-color;
 			border: none;
 		}
-
 		div {
 			transform: skewX(25deg);
 		}
-
 		&_active {
 			color: #fff;
 			background-color: $main-color;
