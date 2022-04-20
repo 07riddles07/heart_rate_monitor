@@ -35,15 +35,35 @@ $(document).ready(function () {
 
   // Switching the cards
   function toggleSlide(item) {
-    $(item).each(function(i) {
-        $(this).on('click', function(e) {
-            e.preventDefault();
-            $('.catalogue-item__content').eq(i).toggleClass('catalogue-item__content_active');
-            $('.catalogue-item__list-descr').eq(i).toggleClass('catalogue-item__list-descr_active');
-        })
+    $(item).each(function (i) {
+      $(this).on("click", function (e) {
+        e.preventDefault();
+        $(".catalogue-item__content")
+          .eq(i)
+          .toggleClass("catalogue-item__content_active");
+        $(".catalogue-item__list-descr")
+          .eq(i)
+          .toggleClass("catalogue-item__list-descr_active");
+      });
     });
-};
+  }
 
-toggleSlide('.catalogue-item__link');
-toggleSlide('.catalogue-item__back');
+  toggleSlide(".catalogue-item__link");
+  toggleSlide(".catalogue-item__back");
+
+  // Modal windows
+  $('[data-modal=consultation]').on('click', function () {
+    $('.overlay, #consultation').fadeIn('slow');
+  });
+  $('.modal__close').on('click', function() {
+    $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
+  });
+
+  $('.button_mini').each(function(i) {
+    $(this).on('click', function() {
+        $('#order .modal__descr').text($('.catalogue-item__subtitle').eq(i).text());
+        $('.overlay, #order').fadeIn('slow');
+    })
+});
+
 });
